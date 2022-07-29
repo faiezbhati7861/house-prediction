@@ -1,12 +1,11 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-
 import pickle
 
 
-app = Flask(_name_)
-model = pickle.load(open('linearregression1.pkl','rb')) 
-
+app = Flask(__name__)
+model = pickle.load(open('/content/drive/My Drive/linearregression1.pkl','rb')) 
+run_with_ngrok(app)
 
 @app.route('/')
 def home():
@@ -15,7 +14,6 @@ def home():
   
 @app.route('/predict',methods=['GET'])
 def predict():
-    
     
     
     '''
@@ -27,6 +25,9 @@ def predict():
     
         
     return render_template('index.html', prediction_text='Regression Model  has predicted price for given square feet is : {}'.format(prediction))
+
+        
+   
 
 
 if _name_ == "_main_":
