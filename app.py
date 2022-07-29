@@ -1,10 +1,12 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
+
 import pickle
 
 
-app = Flask(__name__)
+app = Flask(_name_)
 model = pickle.load(open('linearregression1.pkl','rb')) 
+
 
 @app.route('/')
 def home():
@@ -15,6 +17,7 @@ def home():
 def predict():
     
     
+    
     '''
     For rendering results on HTML GUI
     '''
@@ -23,7 +26,8 @@ def predict():
     prediction = model.predict([[exp]])
     
         
-    return render_template('index.html', prediction_text='Regression Model  has predicted salary for given experinace is : {}'.format(prediction))
+    return render_template('index.html', prediction_text='Regression Model  has predicted price for given square feet is : {}'.format(prediction))
 
 
-app.run(debug=True)
+if _name_ == "_main_":
+    app.run(debug=True)
